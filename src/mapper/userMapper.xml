@@ -4,7 +4,7 @@
     <select id="getUserById" parameterType="int" resultType="domain.User">
         SELECT * from User where id= #{value}
     </select>
-    <select id="getUserByName" parameterType="String" resultType="java.util.List">
+    <select id="getUserByName" parameterType="String" resultType="domain.User">
         SELECT * from User where name like '%${value}%'
     </select>
     <delete id="deleteUser" parameterType="int" >
