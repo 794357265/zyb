@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -33,11 +34,11 @@ public class UserMapperTest {
 		
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 		
-		User user = userMapper.getUserById(1);
+		//User user = userMapper.getUserById(1);
 		
-		userMapper.deleteUser(1);
+		List<User> list = userMapper.getUserByName("小明");
 		
-		System.out.println(user);
+		System.out.println(list);
 		
 		sqlSession.close();
 		
