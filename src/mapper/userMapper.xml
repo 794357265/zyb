@@ -4,4 +4,7 @@
     <select id="getUserById" parameterType="int" resultType="domain.User">
         SELECT * from User where id= #{value}
     </select>
+    <select id="deleteUser" parameterType="int" >
+        delete from User where id= #{value}
+    </select>
 </mapper>

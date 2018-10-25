@@ -35,6 +35,8 @@ public class UserMapperTest {
 		
 		User user = userMapper.getUserById(1);
 		
+		userMapper.deleteUser(1);
+		
 		System.out.println(user);
 		
 		sqlSession.close();
