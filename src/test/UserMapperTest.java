@@ -1,4 +1,4 @@
-package dao;
+package test;
 
 import java.io.InputStream;
 import java.util.List;
@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import domain.User;
+import mapper.UserMapper;
 
 public class UserMapperTest {
 
