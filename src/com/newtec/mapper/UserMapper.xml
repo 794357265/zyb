@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.newtec.mapper.UserMapper">
+    <select id="getUserById" parameterType="int" resultType="user">
+        SELECT * from User where id= #{value}
+    </select>
+    <select id="getUserByName" parameterType="java.lang.String" resultType="com.newtec.domain.User">
+        SELECT * from User where username like '%${value}%'
+    </select>
+    <delete id="deleteUser" parameterType="int" >
+        delete from User where id= #{value}
+    </delete> 
+    <update id="updateUser" parameterType="com.newtec.domain.User">
+		update user set username=#{username},birthday=#{birthday},sex=#{sex},address=#{address}
+		where id=#{id}
+	</update>
+	<insert id="insertUser" parameterType="com.newtec.domain.User">
+		insert into user(username,birthday,sex,address) values (#{username},#{birthday},#{sex},#{address});
+	</insert>
+	
+	<select id="getUserByField" parameterType="user" resultType="user">
+        SELECT * from User
+        <where>
+        	<if test="sex != null and sex !=''">
+        		and sex = #{sex}
+        	</if>
+        	<if test="username != null and username != ''">
+        		and username like '%${username}%'
+        	</if>
+        </where>
+    </select>
+    
+    <select id="getUserByIds" parameterType="java.util.List" resultType="user">
+        SELECT * from User   <!-- where id in (?,?,?)     ||  where id=? or id=? or id=?...-->
+        <where>
+        	<foreach collection="list" item="id" open="id in (" close=")" separator=",">
+        		#{id}
+        	</foreach>
+        </where>
+    </select>
+</mapper>

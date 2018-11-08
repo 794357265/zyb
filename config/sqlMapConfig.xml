@@ -4,11 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="db.properties">
-        <!-- <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=utf-8"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/> -->
     </properties>
+    <!-- <typeAlias type="com.newtec.domain.User" alias="user"/> -->
+    <typeAliases>
+    	<package name="com.newtec.domain"/>
+    </typeAliases>
+    
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC" />
@@ -22,8 +23,6 @@
     </environments>
 
     <mappers>
-        <!-- <mapper resource="mapper/userMapper.xml"/> -->
-        <!-- <mapper class="mapper.UserMapper"/> -->
-        <package name="mapper"/>
+        <package name="com.newtec.mapper"/>
     </mappers>
 </configuration>
