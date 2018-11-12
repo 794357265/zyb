@@ -1,50 +1,23 @@
 package domain;
 
 public class User {
-	
-	private int id;
-	
-	private String name;
-	
-	private String birthday;
-	
-	private String address;
+    private Integer id;
 
-	public int getId() {
-		return id;
-	}
+    private String uName;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getuName() {
+        return uName;
+    }
 
-	public String getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", birthday=" + birthday + ", address=" + address + "]";
-	}
-	
+    public void setuName(String uName) {
+        this.uName = uName == null ? null : uName.trim();
+    }
 }

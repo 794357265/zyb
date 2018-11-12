@@ -1,6 +1,7 @@
 package test;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -10,8 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
-import domain.User;
-import mapper.UserMapper;
+import domain.Item;
+import mapper.ItemMapper;
 
 public class UserMapperTest {
 
@@ -33,14 +34,20 @@ public class UserMapperTest {
 		//fail("Not yet implemented");
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 		
-		//User user = userMapper.getUserById(1);
+		ItemMapper itemMapper = sqlSession.getMapper(ItemMapper.class);
 		
-		List<User> list = userMapper.getUserByName("小明");
-		
-		System.out.println(list);
-		
+		Item item = new Item();
+		item.setRemark("test");
+		//item.setUser_id(1);
+		//item.setType_id(1);
+		//item.setDate("2018-11-12");
+		item.setStart_date("2018-11-01");
+		//itemMapper.insertItem(item);
+		//itemMapper.deleteItemById(1);
+		List<Item> allItem = itemMapper.getItems(item);
+		System.out.println(allItem);
+		//sqlSession.commit();
 		sqlSession.close();
 		
 	}
